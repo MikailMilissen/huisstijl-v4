@@ -1,0 +1,51 @@
+{
+  "name": "huisstijl-v4",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "nx run-many --target='build' --parallel",
+    "build:affected": "nx affected --target='build' --parallel",
+    "start": "nx serve showcase",
+    "lint:ts": "nx run-many --target='lint' --parallel",
+    "test": "web-test-runner --config ./web-test-runner.config.js",
+    "test:watch": "web-test-runner --config ./web-test-runner.config.js --watch",
+    "test:coverage": "web-test-runner --config ./web-test-runner.config.js --coverage "
+  },
+  "private": true,
+  "devDependencies": {
+    "@nrwl/cypress": "15.9.2",
+    "@nrwl/eslint-plugin-nx": "15.9.2",
+    "@nrwl/js": "15.9.2",
+    "@nrwl/linter": "15.9.2",
+    "@nrwl/nx-cloud": "latest",
+    "@nrwl/vite": "15.9.2",
+    "@nrwl/web": "^15.9.2",
+    "@nrwl/workspace": "15.9.2",
+    "@types/node": "18.7.1",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "@vitest/coverage-c8": "~0.25.8",
+    "@vitest/ui": "^0.25.8",
+    "@web/test-runner": "^0.15.3",
+    "cypress": "^12.2.0",
+    "eslint": "~8.15.0",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "jsdom": "~20.0.3",
+    "nx": "15.9.2",
+    "prettier": "^2.6.2",
+    "typescript": "~4.9.5",
+    "vite": "^4.0.1",
+    "vite-plugin-dts": "~1.7.1",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-tsconfig-paths": "^4.0.2",
+    "vitest": "^0.25.8"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "lit": "^2.7.2",
+    "regenerator-runtime": "0.13.7",
+    "sass": "^1.62.0",
+    "tslib": "^2.3.0"
+  }
+}

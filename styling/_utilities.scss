@@ -1,0 +1,893 @@
+/**
+ * The use of important on utilities
+ * Force utility classes to be immutable by applying !important to their declarations.
+ * http://csswizardry.com/2016/05/the-importance-of-important/
+ * http://davidtheclark.com/on-utility-classes/
+ */
+
+@use "variables" as *;
+@use "colors" as *;
+@use "mixins/reset-list" as *;
+@use "mixins/mediaqueries" as *;
+@use "mixins/flexbox" as *;
+@use "mixins/sr-only" as *;
+
+//  =========================== Margins  ===========================
+.u-m0 {
+  margin: 0 !important;
+}
+
+.u-mt0 {
+  margin-top: 0 !important;
+}
+
+.u-mr0 {
+  margin-right: 0 !important;
+}
+
+.u-mb0 {
+  margin-bottom: 0 !important;
+}
+
+.u-ml0 {
+  margin-left: 0 !important;
+}
+
+.u-mb0\@screen {
+  @include screen() {
+    margin-bottom: 0 !important;
+  }
+}
+
+.u-mt0\@screen {
+  @include screen() {
+    margin-top: 0 !important;
+  }
+}
+
+.u-ml0\@screen {
+  @include screen() {
+    margin-left: 0 !important;
+  }
+}
+
+.u-mr0\@screen {
+  @include screen() {
+    margin-right: 0 !important;
+  }
+}
+
+.u-m0\@screen {
+  @include screen() {
+    margin: 0 !important;
+  }
+}
+
+.u-mb0\@tablet {
+  @include tablet() {
+    margin-bottom: 0 !important;
+  }
+}
+
+.u-mt0\@tablet {
+  @include tablet() {
+    margin-top: 0 !important;
+  }
+}
+
+.u-ml0\@tablet {
+  @include tablet() {
+    margin-left: 0 !important;
+  }
+}
+
+.u-mr0\@tablet {
+  @include tablet() {
+    margin-right: 0 !important;
+  }
+}
+
+.u-m0\@tablet {
+  @include tablet() {
+    margin: 0 !important;
+  }
+}
+
+.u-m025 {
+  margin: $spacing-xxs !important;
+}
+
+.u-mt025 {
+  margin-top: $spacing-xxs !important;
+}
+
+.u-mr025 {
+  margin-right: $spacing-xxs !important;
+}
+
+.u-mb025 {
+  margin-bottom: $spacing-xxs !important;
+}
+
+.u-ml025 {
+  margin-left: $spacing-xxs !important;
+}
+
+.u-m05 {
+  margin: $spacing-xs !important;
+}
+
+.u-mt05 {
+  margin-top: $spacing-xs !important;
+}
+
+.u-mr05 {
+  margin-right: $spacing-xs !important;
+}
+
+.u-mb05 {
+  margin-bottom: $spacing-xs !important;
+}
+
+.u-ml05 {
+  margin-left: $spacing-xs !important;
+}
+
+.u-m1 {
+  margin: $spacing-s !important;
+}
+
+.u-mt1 {
+  margin-top: $spacing-s !important;
+}
+
+.u-mr1 {
+  margin-right: $spacing-s !important;
+}
+
+.u-mb1 {
+  margin-bottom: $spacing-s !important;
+}
+
+.u-ml1 {
+  margin-left: $spacing-s !important;
+}
+
+.u-m15 {
+  margin: $spacing-m !important;
+}
+
+.u-mt15 {
+  margin-top: $spacing-m !important;
+}
+
+.u-mr15 {
+  margin-right: $spacing-m !important;
+}
+
+.u-mb15 {
+  margin-bottom: $spacing-m !important;
+}
+
+.u-ml15 {
+  margin-left: $spacing-m !important;
+}
+
+.u-m2 {
+  margin: $spacing-l !important;
+}
+
+.u-mt2 {
+  margin-top: $spacing-l !important;
+}
+
+.u-mb2 {
+  margin-bottom: $spacing-l !important;
+}
+
+.u-ml2 {
+  margin-left: $spacing-l !important;
+}
+
+.u-mr2 {
+  margin-right: $spacing-l !important;
+}
+
+.u-m3 {
+  margin: $spacing-ll !important;
+}
+
+.u-mt3 {
+  margin-top: $spacing-ll !important;
+}
+
+.u-mr3 {
+  margin-right: $spacing-ll !important;
+}
+
+.u-mb3 {
+  margin-bottom: $spacing-ll !important;
+}
+
+.u-ml3 {
+  margin-left: $spacing-ll !important;
+}
+
+.u-m4 {
+  margin: $spacing-xl !important;
+}
+
+.u-mt4 {
+  margin-top: $spacing-xl !important;
+}
+
+.u-mr4 {
+  margin-right: $spacing-xl !important;
+}
+
+.u-mb4 {
+  margin-bottom: $spacing-xl !important;
+}
+
+.u-ml4 {
+  margin-left: $spacing-xl !important;
+}
+
+.u-rowgap0 {
+  row-gap: 0 !important;
+}
+
+//  ===========================  Padding utils  ===========================
+.u-p0 {
+  padding: 0 !important;
+}
+
+.u-pt0 {
+  padding-top: 0 !important;
+}
+
+.u-pr0 {
+  padding-right: 0 !important;
+}
+
+.u-pb0 {
+  padding-bottom: 0 !important;
+}
+
+.u-pl0 {
+  padding-left: 0 !important;
+}
+
+.u-p025 {
+  padding: $spacing-xxs !important;
+}
+
+.u-pt025 {
+  padding-top: $spacing-xxs !important;
+}
+
+.u-pr025 {
+  padding-right: $spacing-xxs !important;
+}
+
+.u-pb025 {
+  padding-bottom: $spacing-xxs !important;
+}
+
+.u-pl025 {
+  padding-left: $spacing-xxs !important;
+}
+
+.u-p05 {
+  padding: $spacing-xs !important;
+}
+
+.u-pr05 {
+  padding-right: $spacing-xs !important;
+}
+
+.u-pl05 {
+  padding-left: $spacing-xs !important;
+}
+
+.u-pt05 {
+  padding-top: $spacing-xs !important;
+}
+
+.u-pb05 {
+  padding-bottom: $spacing-xs !important;
+}
+
+.u-p1 {
+  padding: $spacing-s !important;
+}
+
+.u-pt1 {
+  padding-top: $spacing-s !important;
+}
+
+.u-pr1 {
+  padding-right: $spacing-s !important;
+}
+
+.u-pb1 {
+  padding-bottom: $spacing-s !important;
+}
+
+.u-pl1 {
+  padding-left: $spacing-s !important;
+}
+
+.u-pl0\@MScreenM {
+  @include minScreenMedium {
+    padding-left: 0 !important;
+  }
+}
+
+.u-p15 {
+  padding: $spacing-m !important;
+}
+
+.u-pt15 {
+  padding-top: $spacing-m !important;
+}
+
+.u-pr15 {
+  padding-right: $spacing-m !important;
+}
+
+.u-pb15 {
+  padding-bottom: $spacing-m !important;
+}
+
+.u-pl15 {
+  padding-left: $spacing-m !important;
+}
+
+.u-p2 {
+  padding: $spacing-l !important;
+}
+
+.u-pt2 {
+  padding-top: $spacing-l !important;
+}
+
+.u-pr2 {
+  padding-right: $spacing-l !important;
+}
+
+.u-pb2 {
+  padding-bottom: $spacing-l !important;
+}
+
+.u-pl2 {
+  padding-left: $spacing-l !important;
+}
+
+.u-p3 {
+  padding: $spacing-ll !important;
+}
+
+.u-pt3 {
+  padding-top: $spacing-ll !important;
+}
+
+.u-pr3 {
+  padding-right: $spacing-ll !important;
+}
+
+.u-pb3 {
+  padding-bottom: $spacing-ll !important;
+}
+
+.u-pl3 {
+  padding-left: $spacing-ll !important;
+}
+
+.u-p4 {
+  padding: $spacing-xl !important;
+}
+
+.u-pt4 {
+  padding-top: $spacing-xl !important;
+}
+
+.u-pr4 {
+  padding-right: $spacing-xl !important;
+}
+
+.u-pb4 {
+  padding-bottom: $spacing-xl !important;
+}
+
+.u-pl4 {
+  padding-left: $spacing-xl !important;
+}
+
+//  =========================== Show/Hide  ===========================
+
+//desktop ---SHOW---> mobile
+.u-show\@screenM {
+  @include screenMedium() {
+    display: revert;
+  }
+  display: none;
+}
+
+.u-show\@screen {
+  @include screen() {
+    display: revert;
+  }
+  display: none;
+}
+
+.u-show\@tablet {
+  @include tablet() {
+    display: revert;
+  }
+  display: none;
+}
+
+.u-show\@phone {
+  @include phone() {
+    display: revert;
+  }
+  display: none;
+}
+
+//desktop ---HIDE---> mobile
+.u-hide\@screenM {
+  @include screenMedium() {
+    display: none !important;
+  }
+}
+
+.u-hide\@screen {
+  @include screen() {
+    display: none;
+  }
+}
+
+.u-hide\@tablet {
+  @include tablet() {
+    display: none !important  ;
+  }
+}
+
+.u-hide\@phone {
+  @include phone() {
+    display: none;
+  }
+}
+
+.u-display-none {
+  display: none;
+}
+
+.u-visibility-hidden {
+  visibility: hidden;
+}
+
+//mobile ---HIDE---> desktop
+.u-hide\@min-tablet {
+  @include minTablet() {
+    display: none;
+  }
+}
+
+/* =========================== background-color utils ===========================  */
+.u-bg-blue {
+  background-color: $color-bg-blue-dark;
+}
+
+.u-bg-blue-100 {
+  background-color: $color-bg-blue;
+}
+
+.u-bg-orange-200 {
+  background-color: $color-orange-200;
+}
+
+.u-bg-yellow-200 {
+  background-color: $color-yellow-200;
+}
+
+.u-bg-indigo-900 {
+  background-color: $color-indigo-900;
+}
+
+.u-bg-grey-100 {
+  background-color: $color-bg-grey;
+}
+
+.u-bg-grey-300 {
+  background-color: $color-grey-300;
+}
+
+.u-bg-white {
+  background-color: $color-white;
+}
+
+.u-bg-transparent {
+  background-color: transparent;
+}
+
+/* ===========================  Borders ===========================  */
+.u-vertical-line {
+  display: inline;
+  border-left: 1px solid $default-border-color;
+}
+
+.u-b0 {
+  border: 0;
+}
+
+.u-bt0 {
+  border-top: 0;
+}
+
+.u-br0 {
+  border-right: 0;
+}
+
+.u-bl0 {
+  border-left: 0;
+}
+
+.u-bb0 {
+  border-bottom: 0;
+}
+
+.u-b1 {
+  border: 1px solid $default-border-color;
+}
+
+.u-bt1 {
+  border-top: 1px solid $default-border-color;
+}
+
+.u-br1 {
+  border-right: 1px solid $default-border-color;
+}
+
+.u-bl1 {
+  border-left: 1px solid $default-border-color;
+}
+
+.u-bb1 {
+  border-bottom: 1px solid $default-border-color;
+}
+
+//  =========================== Positioning ===========================
+.u-position-relative {
+  position: relative;
+}
+
+.u-position-absolute {
+  position: absolute;
+}
+
+.u-float-right {
+  float: right;
+}
+
+.u-float-left {
+  float: left;
+}
+
+.u-float-none {
+  float: none;
+}
+
+/* display-inline-block class to allow for example action links next to titles */
+.u-display-inline-block {
+  display: inline-block;
+}
+
+/* display-block class helps angular DOM components to act regulary so they dont mess up other css */
+.u-display-block {
+  display: block;
+}
+
+.u-display-flex {
+  @include flexbox();
+}
+
+.u-display-flex\@min-phone {
+  @include minPhone() {
+    display: flex !important;
+  }
+  display: none !important;
+}
+
+.u-jc-center {
+  @include flexbox();
+  @include justify-content(center);
+}
+
+.u-jc-space-between {
+  @include flexbox();
+  @include justify-content(space-between);
+}
+
+.u-ai-center {
+  @include flexbox();
+  @include align-items(center);
+}
+
+.u-ai-stretch {
+  @include flexbox();
+  @include align-items(stretch);
+}
+
+.u-jc-end {
+  @include flexbox();
+  @include justify-content(flex-end);
+}
+
+.u-jc-ai-center {
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+}
+
+.u-flex-basis-100 {
+  @include flexbox();
+  flex-basis: 100%;
+}
+
+.u-container\@sidebar {
+  container-type: inline-size;
+}
+
+.u-hide\@container-sidebar {
+  @container (max-width:500px) {
+    display: none;
+  }
+}
+//  =========================== Align Self ===========================
+.u-align-self-start {
+  align-self: start;
+}
+
+.u-align-self-center {
+  align-self: center;
+}
+
+.u-align-self-end {
+  align-self: end;
+}
+
+.u-full-width {
+  width: 100%;
+}
+
+//  =========================== Text formatting ===========================
+.u-pre-line {
+  white-space: pre-line;
+}
+
+.u-text-nowrap {
+  white-space: nowrap;
+}
+
+.u-text-prewrap {
+  white-space: pre-wrap;
+}
+
+strong,
+b,
+.u-text-bold {
+  font-weight: 500;
+}
+
+.u-text-s {
+  font-size: $font-size-small; // 16px
+}
+
+.u-text-all-children-s * {
+  // affects ALL the child elements in the element with this class
+  font-size: 1rem; // 16px
+}
+
+.u-text-xs {
+  // Previously named ".u-text-small"
+  font-size: $font-size-xsmall;
+}
+
+.u-text-normal {
+  font-size: $font-size-base;
+  font-weight: 400;
+}
+
+.u-text-meta {
+  color: $color-meta;
+}
+
+.u-text-caps {
+  text-transform: uppercase;
+}
+
+.u-text-align-right {
+  text-align: right;
+}
+
+.u-reset-list {
+  @include reset-list();
+}
+
+.u-break-word {
+  word-break: break-word;
+}
+
+.u-break-all {
+  word-break: break-all;
+}
+
+.u-text-decoration-none {
+  text-decoration: none;
+
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.u-truncate-ellipsis-container {
+  display: grid;
+  max-width: 100%;
+}
+
+.u-truncate-ellipsis {
+  //max-width: 850px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* font-color */
+.u-text-color-orange {
+  color: $color-warning;
+}
+
+.u-text-color-turquoise {
+  color: $color-heading-turquoise;
+}
+
+.u-text-color-indigo {
+  color: $color-heading;
+}
+
+.u-text-color-red {
+  color: $color-danger;
+}
+
+.u-text-color-blue {
+  color: $color-blue-500;
+}
+
+.u-text-color-white {
+  color: $color-white;
+}
+
+.u-text-color-green {
+  color: $color-success;
+}
+
+/* ===========================Other=========================== */
+.u-space-between {
+  //DEPRECATED, do not use
+  @include flexbox();
+  @include justify-content(space-between);
+  @include align-items(center);
+}
+
+.u-focus:focus {
+  outline: 2px solid $color-blue-400;
+}
+
+.u-hs-overlay {
+  position: fixed;
+  z-index: 120;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: transparentize($color-black, 0.5);
+}
+
+/* often used in conjunction with the overlay, to be place on the body */
+.u-no-scroll {
+  overflow: hidden;
+}
+
+.u-no-scroll\@tablet {
+  @include tablet() {
+    overflow: hidden;
+  }
+}
+
+.u-sr-only {
+  @include sr-only();
+
+  &.-show-on-focus:focus {
+    position: relative;
+    width: auto;
+    height: auto;
+    clip: unset;
+  }
+}
+
+.u-sr-only\@desktop {
+  @include sr-only();
+  @include phone {
+    position: unset;
+    overflow: unset;
+    width: auto;
+    height: auto;
+    clip: unset;
+  }
+}
+
+.u-sr-only\@tablet {
+  @include sr-only();
+  @include minTablet {
+    position: unset;
+    overflow: unset;
+    width: auto;
+    height: auto;
+    clip: unset;
+  }
+}
+
+.u-disabled {
+  cursor: not-allowed;
+  color: $color-meta;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: $color-meta;
+  }
+
+  &:visited {
+    color: $color-meta;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.u-vertical-align-b {
+  vertical-align: bottom;
+}
+
+.u-rotate {
+  transform: rotate(-180deg);
+  /* transform: rotate(180deg); */
+  transition: transform 0.3s;
+}
+
+.u-rotate-reset {
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+}
+
+// Only works on html tag or a container element that has a scrolling content
+*.u-smooth-scroll {
+  @include tablet() {
+    scroll-behavior: smooth;
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  *.u-smooth-scroll {
+    @include tablet() {
+      scroll-behavior: auto;
+    }
+  }
+}

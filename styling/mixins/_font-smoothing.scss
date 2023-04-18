@@ -1,0 +1,14 @@
+@mixin font-smoothing($value: antialiased) {
+  @if $value==antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased; // sass-lint:disable-line no-misspelled-properties
+    text-rendering: optimizelegibility;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    font-smoothing: subpixel-antialiased; // sass-lint:disable-line no-misspelled-properties
+    text-rendering: optimizelegibility;
+  }
+}

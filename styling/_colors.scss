@@ -1,0 +1,185 @@
+//sass-lint:disable-all
+
+//burgundy
+$color-burgundy-saturated: #BA0047;
+$color-burgundy-100: #FBF6F8;
+$color-burgundy-200: #eedae1;
+$color-burgundy-300: #E0BDCA;
+$color-burgundy-500: #900C3F;
+$color-burgundy-700: #810134;
+$color-burgundy-900: #6A002A;
+
+//red
+$color-red-saturated: #FF0000;
+$color-red-100: #FFF8F8;
+$color-red-200: #FFDEDE;
+$color-red-300: #F99;
+$color-red-500: #ED1514;
+$color-red-700: #C80001;
+$color-red-900: #9E0000;
+
+//orange
+$color-orange-saturated: #FF8600;
+$color-orange-100: #FEF7F1;
+$color-orange-200: #FDEEDA;
+$color-orange-300: #FDD9A8;
+$color-orange-500: #FB9612;
+$color-orange-700: #E25910;
+$color-orange-800: #C74900;
+$color-orange-900: #C43E00;
+
+//yellow
+$color-yellow-saturated: #FFE200;
+$color-yellow-100: #FDFDE9;
+$color-yellow-200: #FAFAD2;
+$color-yellow-300: #FFF79E;
+$color-yellow-500: #FFD82A;
+$color-yellow-700: #FCBD01;
+$color-yellow-900: #B88A02;
+$color-yellow-1100: #5E5008;
+
+//light-green
+$color-lightgreen-200: #F0F9E3;
+$color-lightgreen-400: #D8F2A4;
+$color-lightgreen-500: #7EBA19;
+$color-lightgreen-600: #6A9129;
+$color-lightgreen-700: #597B23;
+
+//green
+$color-green-saturated: #00D719;
+$color-green-100: #F7FCF7;
+$color-green-200: #F0F9E3;
+$color-green-300: #C4EDC9;
+$color-green-500: #5BCF6A;
+$color-green-600: #00A14B;
+$color-green-700: #1D8229;
+$color-green-900: #104917;
+
+//turquoise
+$color-turquoise-saturated: #00C5B3;
+$color-turquoise-100: #F9FDFD;
+$color-turquoise-200: #EAF6F5;
+$color-turquoise-300: #C8E8E5;
+$color-turquoise-500: #49B4AA;
+$color-turquoise-700: #33827A;
+$color-turquoise-800: #317D75;
+$color-turquoise-900: #004747;
+
+//blue
+$color-blue-saturated: #1A93FF;
+$color-blue-100: #EFF7FE;
+$color-blue-200: #DBECF8;
+$color-blue-300: #C4DEF0;
+$color-blue-400: #82BFFF;
+$color-blue-500: #2D89CC;
+$color-blue-700: #1769A4;
+$color-blue-900: #004475;
+
+//indigo
+$color-indigo-saturated: #002A7F;
+$color-indigo-100: #EEF0F4;
+$color-indigo-200: #d9dee8;
+$color-indigo-300: #C4CBDB;
+$color-indigo-500: #2A4278;
+$color-indigo-700: #102759;
+$color-indigo-900: #041847;
+
+//purple
+$color-purple-saturated: #48006A;
+$color-purple-100: #F4F3F6;
+$color-purple-200: #e2dfe6;
+$color-purple-300: #D0CBD6;
+$color-purple-400: #796694;
+$color-purple-500: #52426A;
+$color-purple-700: #443757;
+$color-purple-900: #322A40;
+
+//grey
+$color-grey-saturated: #252525;
+$color-grey-100: #F8F7F8;
+$color-grey-200: #F1F2F3;
+$color-grey-300: #E3E5E7;
+$color-grey-400: #DCDCDC;
+$color-grey-500: #C9CBCE;
+$color-grey-600: #AEB0B6;
+$color-grey-700: #9097A0;
+$color-grey-800: #6A707B;
+$color-grey-900: #474B50;
+
+//black and white
+$color-white: #FFF;
+$color-black: #000;
+
+//transparent
+$transparent-black-75: transparentize($color-black, 0.25);
+$transparent-black-50: transparentize($color-black, 0.5);
+$transparent-black-25: transparentize($color-black, 0.75);
+$transparent-black-10: transparentize($color-black, 0.9);
+$transparent-black-2: transparentize($color-black, 0.98);
+
+$transparent-white-75: transparentize($color-white, 0.25);
+$transparent-white-50: transparentize($color-white, 0.5);
+$transparent-white-25: transparentize($color-white, 0.75);
+$transparent-white-10: transparentize($color-white, 0.9);
+
+$color-drop-shadow: $transparent-black-25;
+$color-inner-shadow: $transparent-black-10;
+
+/* ============================  SEMANTIC VARIABLES==================================== */
+//text colours
+$color-heading: $color-indigo-700;
+$color-heading-turquoise: $color-turquoise-700;
+$color-body: $color-grey-saturated;
+$color-muted: $color-grey-700;
+$color-meta: $color-grey-800;
+
+//link colours
+$color-link: $color-blue-700;
+$color-link-underline: transparentize($color-link, 0.6);
+$color-hover: darken($color-blue-700, 15%);
+$color-hover-underline: transparentize($color-hover, 0.6);
+$color-visited: $color-purple-saturated;
+$color-visited-underline: transparentize($color-visited, 0.6);
+
+//background colours
+$color-bg-blue: $color-blue-100;
+$color-bg-grey: $color-grey-100;
+$color-bg-blue-dark: $color-blue-700;
+$color-bg-turquoise-dark: $color-turquoise-700;
+
+//semantic colours
+$color-info: $color-blue-700;
+$color-success: $color-green-700;
+$color-warning: $color-orange-700;
+$color-danger: $color-red-700;
+
+//light
+$color-info-light: $color-blue-200;
+$color-success-light: $color-green-200;
+$color-warning-light: $color-orange-100;
+$color-danger-light: $color-red-200;
+
+//border
+$default-border-color: $transparent-black-10;
+
+//gradients
+$gradient-blue: radial-gradient(
+  62.1% 385.9% at 73.27% 50%,
+  #2D89CC 0%,
+  #004475 100%
+);
+$gradient-orange: radial-gradient(
+  62.1% 385.9% at 73.27% 50%,
+  #FDB85E 0%,
+  #E27D10 100%
+);
+$gradient-purple: radial-gradient(
+  62.07% 385.69% at 73.23% 50%,
+  #7F2AA7 0%,
+  #48006A 100%
+);
+$gradient-burgundy: radial-gradient(
+  62.07% 385.69% at 73.23% 50%,
+  $color-burgundy-500 0%,
+  $color-burgundy-900 100%
+);

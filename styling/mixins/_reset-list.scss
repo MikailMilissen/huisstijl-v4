@@ -1,0 +1,50 @@
+// RESET LIST
+// - - - - - - - - - - - - - - - - - - - -
+// Remove/reset the browser default styling
+// on list elements.
+//
+// This mixin is @included in the .u-reset-list class
+// located in /new/styling/_utilities.scss
+//
+// Example:
+// --------
+// .ul {
+//   @include reset-list();
+// }
+//
+// This mixin will remove the list-bullets,
+// so its advised to combine this with .arrow-list (deprecated!).
+//
+// Example:
+// --------
+// .ul {
+//   @include reset-list();
+//   @extend .arrow-list; (deprecated!)
+// }
+//
+
+@mixin reset-list() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-type: none;
+  list-style-image: none;
+
+  /* to make sure you have indentation when lists are nested */
+  li {
+    ul.u-reset-list, ol.u-reset-list {
+      padding-left: 1.2em;
+    }
+  }
+
+  /* to make sure you have indentation when lists are nested and parent list has class ".u-reset-list" */
+  ul:not(.u-reset-list), ol:not(.u-reset-list) {
+    padding-left: 1.2em;
+  }
+
+  li.leaf, li.collapsed, i.expanded, li {
+    list-style: none;
+    list-style-type: none;
+    list-style-image: none;
+  }
+}

@@ -1,0 +1,302 @@
+@use "variables" as *;
+@use "colors" as *;
+@use "mixins/font-smoothing" as *;
+@use "mixins/flexbox" as *;
+@use "mixins/mediaqueries" as *;
+
+body, textarea, input, select, button {
+  font-family: $brand-font-regular;
+  font-size: $font-size-base; //18px
+  font-weight: 400;
+  line-height: $baseline; //27px = 1.5
+  text-align: left;
+  color: $color-body;
+}
+
+body, textarea, input, select, button {
+  font-family: $brand-font-regular;
+  font-size: $font-size-base; //18px
+  font-weight: 400;
+  line-height: $baseline; //27px = 1.5
+  text-align: left;
+  color: $color-body;
+}
+
+figcaption {
+  font-size: $font-size-small;
+  color: $color-muted;
+}
+
+// HEADINGS ================================================================================================================
+h1, h2, h3, h4, h5, h6, .c-h1, .c-h2, .c-h3, .c-h4, .c-h5, .c-h6 {
+  font-family: $brand-font-regular;
+  font-weight: $headings-font-weight;
+  color: $color-heading;
+
+  &.has-dark-bg {
+    color: $color-white;
+  }
+}
+
+h1, .c-h1 {
+  @include font-smoothing();
+  font-size: $font-size-h1; //45px
+  line-height: $baseline*1.8; // 48,6px
+  margin-bottom: $baseline;
+  letter-spacing: -0.02em;
+}
+
+h2, .c-h2 {
+  font-size: $font-size-h2; //32px
+  line-height: $baseline*1.5; // 40.5px
+  margin-top: $baseline*1.5;
+  margin-bottom: calc(#{$baseline}/2);
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+}
+
+h3, .c-h3 {
+  font-size: $font-size-h3; //26px
+  line-height: $baseline*1.2; // 28.8 = 1,18
+  margin-top: $baseline;
+  margin-bottom: calc(#{$baseline}/2);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h4, .c-h4 {
+  font-size: $font-size-h4;
+  line-height: $baseline;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h5, .c-h5 {
+  font-size: $font-size-h5;
+  line-height: $baseline;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+// PARAGRAPHS ================================================================================================================
+p {
+  margin-bottom: calc(#{$baseline}/2);
+}
+
+.c-intro-text {
+  font-size: $font-size-h3;
+  font-weight: 300;
+  line-height: 37.8px;
+  margin-bottom: 13.5px;
+  color: $color-heading;
+
+  &.has-dark-bg {
+    color: $color-white;
+  }
+}
+
+// LINKS ====================================================================================================================
+a, .c-hyperlink {
+  cursor: pointer;
+  text-decoration: underline;
+  color: $color-link;
+  background: none;
+  border: 0;
+  text-decoration-color: $color-link-underline;
+  text-underline-position: under;
+
+  &:visited {
+    text-decoration: underline;
+    color: $color-visited;
+    text-decoration-color: $color-visited-underline;
+    text-underline-position: under;
+
+  }
+
+  &:hover {
+    text-decoration: underline;
+    color: $color-hover;
+    text-decoration-color: $color-hover-underline;
+    text-underline-position: under;
+
+  }
+
+  &:focus {
+    outline: 2px solid $color-blue-400;
+  }
+
+  &:active {
+    color: $color-blue-900;
+  }
+
+  // white link for on a dark background
+  &.-inverted {
+    color: $color-white;
+    text-decoration-color: $color-white;
+
+    &:hover {
+      color: darken($color-white, 15%);
+      text-decoration-color: darken($color-white, 15%);
+    }
+
+    &:active {
+      color: darken($color-white, 15%);
+      text-decoration-color: darken($color-white, 15%);
+    }
+
+    &:focus {
+      outline: 2px solid transparentize($color-white, 0.25) !important;
+    }
+  }
+
+  &.-muted {
+    color: $color-muted;
+    text-decoration-color: $color-muted;
+
+    &:visited {
+      color: $color-muted;
+      text-decoration-color: $color-muted;
+    }
+
+    &:hover {
+      color: $color-link;
+      text-decoration-color: $color-link;
+    }
+  }
+
+  &.-no-visited-state {
+    &:visited {
+      color: $color-link;
+      text-decoration-color: $color-link-underline;
+    }
+
+    &:hover {
+      text-decoration: underline;
+      color: $color-hover;
+      text-decoration-color: $color-hover-underline;
+      text-underline-position: under;
+    }
+  }
+
+  &.c-btn:focus {
+    outline: none;
+  }
+
+  &.c-round-btn {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content (center);
+  }
+
+  &.-no-underline {
+    text-decoration: none;
+  }
+}
+
+// For navigation and intro-block
+a.c-routing-link, .c-routing-link {
+  font-size: $font-size-h3;
+  font-weight: $headings-font-weight;
+  line-height: $baseline*1.2;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:visited {
+    text-decoration: none;
+    color: $color-link;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: $color-hover;
+  }
+
+}
+
+// LISTS ================================================================================================================
+ul {
+  padding-left: 1.2em;
+  list-style-position: outside;
+  list-style-type: disc;
+}
+
+ol {
+  padding-left: 1.2em;
+  list-style-position: outside;
+  list-style-type: decimal;
+}
+
+ul, ol {
+  &.-compact {
+    li {
+      margin: 0; //dumb ass overrule for regular list
+      padding-top: calc(#{$baseline}/4);
+      padding-bottom: calc(#{$baseline}/4);
+    }
+  }
+}
+
+li {
+  margin-top: calc(#{$baseline}/2);
+  margin-bottom: calc(#{$baseline}/2);
+}
+
+// TODO: Refactor: remove / deprecate because replaced by ".c-action-link-list" (which also should be renamed)?
+// .c-arrows-list {
+//   @extend .-list-style-none;
+
+//   li {
+//     @extend .icon;
+//     @extend .icon-arrow-right;
+//     margin-bottom: 1rem;
+//   }
+// }
+
+// TODO: Refactor: remove / deprecate because replaced by ".c-action-link-list" (which also should be renamed)?
+// ul.arrows-list-animated {
+//   @extend .-list-style-none;
+
+//   li {
+//     @extend .icon;
+//     @extend .icon-arrow-right;
+//     margin-bottom: 1rem;
+
+//     &:hover {
+//       &:before {
+//         transition: transform .05s ease-in-out;
+//         transform: translate3d(3px, 0, 0) scale(1, 1);
+//       }
+//     }
+//   }
+
+//   li:before {
+//     font-size: 1.1rem;
+//     transition: transform .05s ease-in-out;
+//     transform: translate3d(0, 0, 0) scale(1, 1);
+//     filter: blur(0);
+//   }
+// }
+
+// MEDIA QUERIES ================================================================================================================
+
+@include tablet {
+  h1, .c-h1 {
+    font-size: $font-size-h1-mobile; //34px
+    line-height: $baseline*1.5; // 40.5px
+  }
+
+  h2, .c-h2 {
+    font-size: $font-size-h2-mobile; //28px
+    line-height: $baseline*1.2;
+    margin-top: $baseline*1.2;
+  }
+}

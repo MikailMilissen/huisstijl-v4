@@ -1,0 +1,54 @@
+@use "../variables" as *;
+@use "../colors" as *;
+@use "flexbox" as *;
+@use "mediaqueries" as *;
+
+@mixin grid-panel($cols: 1) {
+
+  margin-bottom: $spacing-xl;
+
+  &.-bg-spacing {
+    // background-color: $color-grey-100; // put color in project css √
+    padding: $spacing-m;
+
+    // In case of loading data
+    &.has-loading {
+      background-color: $transparent-black-2;
+      &:hover {
+        background-color: $transparent-black-2 !important;
+      }
+    }
+  }
+
+  @if $cols == 1 or $cols == sidearea {    
+    @include screen() {
+      &.-bg-spacing {
+        margin-left: -$spacing-m;
+        margin-right: -$spacing-m;
+      }
+    }
+  }
+  
+  @if $cols != 1 and $cols != sidearea {
+    margin-bottom: 0;
+  
+    @include screen() {
+      &.-bg-spacing:nth-of-type(odd) {
+        margin-left: -$spacing-m;
+      }
+      &.-bg-spacing:nth-of-type(even) {
+        margin-right: -$spacing-m;
+      }
+    }
+  }
+
+  @include tablet() {
+    margin-bottom: $spacing-l;
+
+    &.-bg-spacing {
+      margin-left: -$spacing-m;
+      margin-right: -$spacing-m;
+    }
+  }
+ 
+}

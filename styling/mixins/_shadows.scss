@@ -1,0 +1,22 @@
+@use "../variables" as *;
+@use "../colors" as *;
+
+@mixin drop-shadow($size: m, $color: $color-drop-shadow) {
+  @if $size==s {
+    box-shadow: 0px 2px 4px $color;
+  } @else if $size==m {
+    box-shadow: 2px 4px 8px $color;
+  } @else if $size==l {
+    box-shadow: 4px 8px 16px $color;  
+  }
+}
+
+@mixin inner-shadow($size: s, $color: $color-inner-shadow) {
+  @if $size==s {
+    box-shadow: inset 0px 2px 4px $color;
+  } @else if $size==m {
+    box-shadow: inset 2px 4px 8px $color;
+  } @else if $size==l {
+    box-shadow: inset 4px 8px 16px $color;  
+  }
+}

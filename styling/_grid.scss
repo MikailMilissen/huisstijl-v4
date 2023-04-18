@@ -1,0 +1,169 @@
+@use "./variables" as *;
+@use "./mixins/mediaqueries" as *;
+@use "./mixins/flexbox" as *;
+@use "./mixins/css-grid" as *;
+
+.o-stretch-wrapper {
+  width: 100%;
+}
+
+.o-wrapper,
+.o-stretch-wrapper\@mobile {
+  box-sizing: border-box;
+  max-width: $grid-max-width;
+  margin: $spacing-xl auto;
+
+  .o-stretch-wrapper[class*="bg-"] & {
+    //indien genest in stretch-wrapper + bg-color is er padding nodig
+    padding-top: $spacing-ll;
+    padding-bottom: $spacing-ll;
+  }
+
+  &[class*="bg-"] {
+    padding: $spacing-ll; //use in combination with bg-color without stretch wrapper also needs padding
+  }
+
+  &.-spacing-x2 {
+    margin-top: $spacing-xl * 2;
+  }
+}
+
+.o-1-col:not(:last-child),
+.o-2-col:not(:last-child),
+.o-3-col:not(:last-child),
+.o-4-col:not(:last-child) {
+  margin-bottom: $spacing-m;
+}
+
+.o-1-col {
+  //for text purposes that are 66% width
+  max-width: 66%;
+}
+
+.o-2-col {
+  @include display-grid;
+  @include repeat-template-columns(2, 1fr, $grid-gap);
+  @include ie-grid-items-2();
+
+  &.-sidearea {
+    -ms-grid-columns: 2fr 2rem 1fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: ". side";
+
+    .is-sidearea {
+      grid-area: side;
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
+    }
+  }
+
+  &.-sidearea-left {
+    -ms-grid-columns: 1fr 2rem 2fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "side .";
+
+    .is-sidearea {
+      grid-area: side;
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+    }
+  }
+
+  .is-sidearea {
+    @include flexbox();
+    @include flex-direction(column);
+    gap: $spacing-l;
+  }
+}
+
+.o-3-col {
+  @include display-grid;
+  @include repeat-template-columns(3, 1fr, $grid-gap);
+  @include ie-grid-items-3();
+}
+
+.o-4-col {
+  @include display-grid;
+  @include repeat-template-columns(4, 1fr, $grid-gap);
+  @include ie-grid-items-4();
+}
+
+/* MEDIA Q <1300px */
+
+@include screenLarge() {
+  //when screenwidth is less than 1300px, we need margin on the wrapper to prevent content sticking to the sides
+  .o-wrapper {
+    margin-right: $spacing-m;
+    margin-left: $spacing-m;
+  }
+
+  .o-wrapper[class*="bg-"],
+  .o-stretch-wrapper\@mobile[class*="bg-"] {
+    //overrules the larger padding on line 18
+    padding-right: $spacing-m;
+    padding-left: $spacing-m;
+  }
+}
+
+/* MEDIA Q medium screens */
+
+@include screenMedium() {
+  .o-1-col {
+    max-width: 100%;
+  }
+}
+
+/* MEDIA Q small screens */
+
+@include screen() {
+  .o-2-col {
+    &.-\@screen {
+      grid-template-columns: 1fr;
+
+      &.-sidearea,
+      &.-sidearea-left {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: //necessary otherwise an element with is-sidearea breaks things bcs theres no grid layout. future: if choice is needed to put side below, extra css is needed here
+
+          "side"
+          ".";
+      }
+    }
+  }
+
+  //column grid becomes rows
+  .o-3-col,
+  .o-4-col {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* MEDIA Q TABLET */
+
+@include tablet() {
+  .o-wrapper,
+  .o-stretch-wrapper\@mobile {
+    margin: $spacing-ll $spacing-m;
+  }
+
+  .o-2-col {
+    grid-template-columns: 1fr;
+
+    &.-sidearea,
+    &.-sidearea-left {
+      -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+      grid-template-areas: //necessary otherwise an element with is-sidearea breaks things bcs theres no grid layout. future: if choice is needed to put side below, extra css is needed here
+
+        "side"
+        ".";
+    }
+  }
+
+  .o-3-col,
+  .o-4-col {
+    grid-template-columns: 1fr;
+  }
+}

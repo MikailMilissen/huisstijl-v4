@@ -1,0 +1,64 @@
+// RESPONSIVE
+
+$phone: 30em; // 480px
+$tablet: 42.5em; // 680px
+$screen-small: 60em; // 960px
+$screen-medium: 72em; // 1152px
+$screen-large: 85.25em; // 1364px
+
+// Default media queries: desktop first
+
+@mixin phone() {
+  @media (max-width: #{$phone}) {
+    @content;
+  }
+}
+@mixin tablet() {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+@mixin screen() {
+  @media (max-width: #{$screen-small}) {
+    @content;
+  }
+}
+@mixin screenMedium() {
+  @media (max-width: $screen-medium) {
+    @content;
+  }
+}
+@mixin screenLarge() {
+  @media (max-width: $screen-large) {
+    @content;
+  }
+}
+
+// Alternative media queries: mobile first
+// Only use after team agreement!
+
+@mixin minPhone() {
+  @media (min-width: #{$phone}) {
+    @content;
+  }
+}
+@mixin minTablet() {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+@mixin minScreen() {
+  @media (min-width: #{$screen-small}) {
+    @content;
+  }
+}
+@mixin minScreenMedium() {
+  @media (min-width: $screen-medium) {
+    @content;
+  }
+}
+@mixin minScreenLarge() {
+  @media (min-width: $screen-large) {
+    @content;
+  }
+}

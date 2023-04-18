@@ -1,0 +1,135 @@
+/*
+OPGELET: gebruik geen css comb in deze file!!!!!
+Wanneer je dit wel doet wordt de volgorde van een aantal functies veranderd waardoor ze niet meer naar behoren werken
+*/
+
+@mixin display-grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+/* function used in the repeat template.
+IE has it's own syntax for gtc: repeat() BUT this syntax does not support gap.
+So every gap is turned into a seperate column.
+*/
+
+@function listcolumns ($number-of-columns, $column-width, $gap: 0) {
+  $list: ();
+  $counter: 0;
+  @for $i from 1 through $number-of-columns {
+    $counter: $counter + 1;
+    @if $counter==$number-of-columns {
+      $list: append($list, $column-width, $separator: space);
+    }
+    @else {
+      $list: append($list, ($column-width $gap), $separator: space);
+    }
+  }
+  @return $list;
+}
+
+@mixin repeat-template-columns($number-of-columns, $column-width, $gap: 0) {
+  grid-template-columns: repeat($number-of-columns, $column-width);
+  grid-gap: $gap;
+  -ms-grid-columns: listcolumns($number-of-columns, $column-width, $gap);
+}
+
+/* these are some aligment and justification mixins for the grid */
+
+@mixin grid-align-self($value) {
+  -ms-grid-row-align: $value;
+  align-self: $value;
+}
+@mixin grid-justify-self($value) {
+  -ms-grid-column-align: $value;
+  justify-self: $value;
+}
+@mixin grid-column($start, $span) {
+  -ms-grid-column: $start;
+  -ms-grid-column-span: $span;
+  grid-column: #{$start} / #{($span)};
+}
+
+/* IE does not autofill every div in another cell. these mixins make sure that
+  the children of the div it's applied to, all get their own specific cell.
+  The 50 is a random high number for the loop to address all the items
+   */
+
+@mixin ie-grid-items-4($start: 1, $items: 50) {
+  $row: 1;
+  $column: 1;
+  @for $i from $start through $items {
+    >*:nth-child(#{$i}) {
+      -ms-grid-row: $row;
+      -ms-grid-column: $column;
+    }
+
+    $column: $column+2;
+    @if $i % 4==0 {
+      $column: 1;
+      $row: $row + 1;
+    }
+  }
+}
+@mixin ie-grid-items-3($start: 1, $items: 50) {
+  $row: 1;
+  $column: 1;
+  @for $i from $start through $items {
+    >*:nth-child(#{$i}) {
+      -ms-grid-row: $row;
+      -ms-grid-column: $column;
+    }
+
+    $column: $column+2;
+    @if $i % 3==0 {
+      $column: 1;
+      $row: $row + 1;
+    }
+  }
+}
+@mixin ie-grid-items-2($start: 1, $items: 50) {
+  $row: 1;
+  $column: 1;
+  @for $i from $start through $items {
+    >*:nth-child(#{$i}) {
+      -ms-grid-row: $row;
+      -ms-grid-column: $column;
+    }
+
+    $column: $column+2;
+    @if $i % 2==0 {
+      $column: 1;
+      $row: $row + 1;
+    }
+  }
+}
+@mixin ie-grid-items($number-of-columns) {
+  $start: 1;
+  $items: 50;
+  $row: 1;
+  $column: 1;
+  @for $i from $start through $items {
+    $column: $column+2;
+    >*:nth-child(#{$i}) {
+      -ms-grid-row: $row;
+      -ms-grid-column: $column;
+    }
+    @if $i % $number-of-columns==0 {
+      $column: 1;
+      $row: $row + 1;
+    }
+  }
+}
+
+/* we want to assign all the children in a general wrapper a row without assigning a
+     column.
+  */
+
+@mixin ie-grid-rows($start: 1, $items: 50) {
+  @for $i from $start through $items {
+
+    >*:nth-child(#{$i}) {
+      -ms-grid-row: $i;
+    }
+  }
+}

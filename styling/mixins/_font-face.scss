@@ -1,0 +1,21 @@
+$font-path: "../../../documentation/assets/";
+
+@mixin font-face($font-family, $font-weight, $font-style, $src-filename) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-style: $font-style;
+
+    //src: url('#{$font-path}#{$src-filename}.eot');
+    src: url("#{$font-path}#{$src-filename}.eot?#iefix") format("embedded-opentype"),
+      url("#{$font-path}#{$src-filename}.woff") form      woff"),
+    url("#{$font-path}#{$src-filename}.ttf") forma      ruetype"),
+      url("#{$font-path}#{$src-filename}.svg##{$src-      name}") format("svg");
+  }
+}
+
+@include font-face(Flanders Art Sans, 200, normal, FlandersArtSans-Light);
+@include font-face(Flanders Art Sans, 400, normal, FlandersArtSans-Regular);
+@include font-face(Flanders Art Sans, 500, normal, FlandersArtSans-Medium);
+@include font-face(Flanders Art Sans, 700, normal, FlandersArtSans-Bold);
+@include font-face(Flanders Art Sans, 200, italic, FlandersArtSans-LightItalic);
